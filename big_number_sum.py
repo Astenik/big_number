@@ -45,7 +45,7 @@ def big_number_sum(big1: str, big2: str):
                     else:
                         rem = 0 
                     res.append(_sum)
-        else:
+        elif len(lst1) > len(lst2):
             res = []
             rem = 0
             for j in range(len(lst2) - 1, -1, -1):
@@ -67,6 +67,20 @@ def big_number_sum(big1: str, big2: str):
                     else:
                         rem = 0 
                     res.append(_sum)
+            if rem != 0:
+                res.append(rem)
+        else:
+            res = []
+            rem = 0
+            for j in range(len(lst2) - 1, -1, -1):
+                for jj in range(len(lst2[j]) - 1, -1, -1):
+                      _sum = int(lst1[j][jj]) + int(lst2[j][jj]) + rem
+                      if _sum > 9:
+                         rem = 1 
+                         _sum %= 10 
+                      else:
+                         rem = 0
+                      res.append(_sum) 
             if rem != 0:
                 res.append(rem)
         ij = 0
