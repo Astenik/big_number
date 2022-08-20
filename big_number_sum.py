@@ -1,4 +1,4 @@
-def big_number(big1: str, big2: str):
+def big_number_sum(big1: str, big2: str):
         q1 = len(big1) % 3
         q2 = len(big2) % 3
         lst1 = []
@@ -67,14 +67,16 @@ def big_number(big1: str, big2: str):
                     else:
                         rem = 0 
                     res.append(_sum)
-        ij = len(res) - 1
+            if rem != 0:
+                res.append(rem)
+        ij = 0
         new_res = []
-        while ij >= 0:
+        while ij < len(res):
              count = 3
              num = []
-             while count > 0:
+             while (count > 0) and (ij < len(res)):
                  num.append(res[ij])
-                 ij -= 1
+                 ij += 1
                  count -= 1
              num = num[::-1]
              new_res.append(num)
@@ -82,4 +84,4 @@ def big_number(big1: str, big2: str):
         return res 
 num1 = 2**33
 num2 = 2**33 
-print(big_number(f'{num1}', f'{num2}'))
+print(big_number_sum(f'{num1}', f'{num2}'))
